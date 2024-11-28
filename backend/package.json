@@ -7,5 +7,9 @@
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.4",
     "sequelize": "^6.37.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aaryanaswani/Cartsy-react-Project.git"
   }
 }
