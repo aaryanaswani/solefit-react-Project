@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { loginUser } from '../api';
+import '../Styles/Login.css';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -17,22 +18,33 @@ const Login = () => {
     };
 
     return (
-        <form onSubmit={handleLogin}>
-            <h1>Login</h1>
-            <input
-                type="text"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">Login</button>
-        </form>
+        <div className="login-container">
+            <div className="login-card">
+                <h1>Login</h1>
+                <form onSubmit={handleLogin}>
+                    <label htmlFor="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter your username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button type="submit">Login</button>
+                </form>
+                <p>
+                    Don't have an account? <a href="/register">Register here</a>
+                </p>
+            </div>
+        </div>
     );
 };
 

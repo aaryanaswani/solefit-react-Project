@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { fetchProducts } from '../api';
-import { useCart } from '../context/CartContext';
 import '../Styles/index.css';
 
-const Products = () => {
+const ProductsSection = () => {
     const [products, setProducts] = useState([]);
-    const { dispatch } = useCart();
 
     useEffect(() => {
         const getProducts = async () => {
@@ -15,25 +13,20 @@ const Products = () => {
         getProducts();
     }, []);
 
-    const addToCart = (product) => {
-        dispatch({ type: 'ADD_TO_CART', payload: product });
-    };
-
     return (
-        <div>
-            <h1>Products</h1>
-            <div>
+        <section className="products-section">
+            <h2>Our Products</h2>
+            <div className="products-container">
                 {products.map((product) => (
-                    <div key={product.id}>
-                        <h2>{product.name}</h2>
+                    <div key={product.id} className="product-card">
+                        <h3>{product.name}</h3>
                         <p>{product.description}</p>
                         <p>${product.price}</p>
-                        <button onClick={() => addToCart(product)}>Add to Cart</button>
                     </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 };
 
-export default Products;
+export default ProductsSection;
