@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db');
 
-const User = sequelize.define('User', {
+const Admin = sequelize.define('Admin', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -17,10 +17,10 @@ const User = sequelize.define('User', {
         allowNull: false,
     },
     role: {
-        type: DataTypes.ENUM('customer'),
+        type: DataTypes.ENUM('admin'),
         allowNull: false,
-        defaultValue: 'customer',
+        defaultValue: 'admin',
     },
 });
 
-module.exports = User;
+module.exports = Admin;

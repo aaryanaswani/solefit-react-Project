@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { fetchProducts } from '../api';
 import { useCart } from '../context/CartContext';
 import '../Styles/index.css';
+//import { fetchProducts } from '../api';
 
 const Products = () => {
     const [products, setProducts] = useState([]);

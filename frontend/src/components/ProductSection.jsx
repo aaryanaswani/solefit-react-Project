@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchProducts } from '../api';
 import '../Styles/index.css';
+//import { fetchProducts } from '../api';
 
 const ProductsSection = () => {
     const [products, setProducts] = useState([]);
