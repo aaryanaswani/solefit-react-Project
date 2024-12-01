@@ -1,11 +1,29 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../db');
+// models/Product.js
+import { Sequelize, DataTypes } from 'sequelize'; 
+import sequelize from '../db';  // Import Sequelize instance
 
 const Product = sequelize.define('Product', {
-    name: { type: DataTypes.STRING, allowNull: false },
-    description: { type: DataTypes.TEXT, allowNull: false },
-    price: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
-    image: { type: DataTypes.STRING, allowNull: false },
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    description: {
+        type: DataTypes.STRING,
+    },
+    price: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+    },
+    image: {
+        type: DataTypes.STRING,  // Assuming the image field stores image URLs or paths
+        allowNull: false,
+    }
 });
 
-module.exports = Product;
+// Export the Product model using ES module export
+export default Product;

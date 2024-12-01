@@ -1,6 +1,6 @@
-const express = require('express');
-const router = express.Router();
-const sequelize = require('../db'); // Import Sequelize instance
+import { Router } from 'express';
+const router = Router();
+import { query, QueryTypes } from '../db'; // Import Sequelize instance
 
 // Login route
 router.post('/login', async (req, res) => {
@@ -9,11 +9,11 @@ router.post('/login', async (req, res) => {
     try {
         const tableName = panel === 'admin' ? 'admins' : 'users';
 
-        const [user] = await sequelize.query(
+        const [user] = await query(
             `SELECT * FROM ${tableName} WHERE username = :username AND password = :password`,
             {
                 replacements: { username, password },
-                type: sequelize.QueryTypes.SELECT,
+                type: QueryTypes.SELECT,
             }
         );
 
@@ -27,4 +27,4 @@ router.post('/login', async (req, res) => {
     }
 });
 
-module.exports = router; // Export the router instance
+export default router; // Export the router instance

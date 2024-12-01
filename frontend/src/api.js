@@ -21,8 +21,8 @@ export const loginUser = async ({ username, password, panel }) => {
 export const fetchProducts = async () => {
     try {
         const response = await axios.get(`${API_BASE_URL}/products`);
-        return response.data; // Return the list of products
+        return response.data; // Return the products data
     } catch (err) {
-        throw err.response?.data?.message || 'Failed to fetch products.';
+        throw new Error(err.response?.data?.message || 'Failed to fetch products.');
     }
 };
