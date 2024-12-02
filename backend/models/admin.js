@@ -1,7 +1,7 @@
-import { DataTypes } from 'sequelize';
-import { define } from '../db';
+const { DataTypes } = require('sequelize');
+const sequelize = require('../db');
 
-const Admin = define('Admin', {
+const Admin = sequelize.define('Admin', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -23,4 +23,4 @@ const Admin = define('Admin', {
     },
 });
 
-export default Admin;
+module.exports = Admin;
