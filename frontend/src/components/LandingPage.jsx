@@ -9,7 +9,7 @@ const LandingPage = () => {
         <div className="landing-container">
             <h1>Welcome to Cartsy</h1>
             <p>Select your panel to proceed:</p>
-            <div className="buttons">
+            <div className="landing-buttons">
                 <button onClick={() => navigate('/login/admin')}>Admin Panel</button>
                 <button onClick={() => navigate('/login/customer')}>Customer Panel</button>
             </div>

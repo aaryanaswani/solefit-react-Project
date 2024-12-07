@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchProducts } from '../api'; // Import the fetchProducts function
-import '../Styles/index.css'; // Ensure you're using the correct CSS file for styling
+import '../Styles/products.css'; // Ensure you're using the correct CSS file for styling
 
 const ProductsSection = () => {
     const [products, setProducts] = useState([]);  // State to store products
@@ -21,7 +21,7 @@ const ProductsSection = () => {
     }, []); // Empty dependency array means this runs only on mount
 
     return (
-        <div className="products-section">
+        <div id="products" className="products-section">
             <h1>Products</h1>
             {/* Display error message if any */}
             {error && <div className="error-message">{error}</div>}

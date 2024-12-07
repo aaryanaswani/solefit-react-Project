@@ -1,45 +1,65 @@
-/* Navbar */
 .navbar {
-    background-color: #1e1e1e;
-    padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-  
-  .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .navbar-logo {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #ffffff;
-  }
-  
-  .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .navbar-links li {
-    display: inline;
-  }
-  
-  .navbar-links a {
-    color: #ffffff;
-    font-size: 1rem;
-    padding: 5px 10px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .navbar-links a:hover {
-    background-color: #333333;
-  }
-  
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between logo and right-aligned items */
+  background-color: #fdfcf4; /* Creamy white background */
+  padding: 15px 50px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #5a5a5a; /* Dark text */
+  text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center; /* Align links and button vertically */
+  gap: 20px; /* Space between links and cart button */
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 25px; /* Space between navigation links */
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #5a5a5a; /* Dark text */
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+
+
+.cart-button:hover{
+  color: #c78550; /* Light brown on hover */
+}
+
+.cart-button {
+  padding: 8px 20px;
+  font-size: 1rem;
+  color: #5a5a5a; /* Dark text for button */
+  background-color: transparent;
+  border: 2px solid #5a5a5a; /* Dark border */
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.cart-button:hover {
+  background-color: #c78550; /* Light brown fill */
+  color: white; /* White text */
+  border-color: #c78550; /* Match border with fill */
+}

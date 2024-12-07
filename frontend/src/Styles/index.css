@@ -1,78 +1,117 @@
-/* Products Section */
-.products-section {
-  padding: 40px 20px;
-  background-color: #121212;
+/* General Reset */
+body, h1, h2, h3, p, a, button, input, label {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-.products-container {
+/* Global Styling */
+body {
+  background-color: #fdfcf4; /* Light creamy background */
+  color: #5a5a5a; /* Dark text */
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+
+/* Links */
+a {
+  color: #f4976c;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #d97745;
+}
+
+/* Buttons */
+button {
+  margin-top: 10px;
+  background-color: #f4976c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #d97745;
+}
+
+/* Containers */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+/* Footer Section */
+footer {
+  background-color: #c78550; /* Light brown footer background */
+  color: white; /* White text for contrast */
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 40px;
+}
+
+footer .footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 20px;
 }
 
-.product-card {
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  padding: 20px;
-  width: 250px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.product-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #ffffff;
-}
-
-.product-card p {
-  font-size: 1rem;
-  color: #bdbdbd;
-  margin-bottom: 10px;
-}
-
-.product-card button {
-  background: #007BFF;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.product-card button:hover {
-  background: #0056b3;
-}
-
-/* About Section */
-.about-section {
-  padding: 40px 20px;
-  background: #1e1e1e;
-  text-align: center;
-  color: #ffffff;
-}
-
-.about-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.about-section p {
-  font-size: 1.2rem;
-  color: #bdbdbd;
-}
-
-/* Footer */
-.footer {
-  background-color: #121212;
-  color: #888888;
-  text-align: center;
-  padding: 30px;
+footer .footer-container p {
+  margin: 0;
   font-size: 0.9rem;
 }
 
-.footer p {
+footer .social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+footer .social-icons a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer .social-icons a:hover {
+  color: #fdfcf4; /* Slightly lighter hover effect */
+}
+
+footer .footer-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
   margin: 0;
+}
+
+footer .footer-links li a {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer .footer-links li a:hover {
+  color: #fdfcf4; /* Light hover effect */
+}
+
+html {
+  scroll-behavior: smooth;
 }

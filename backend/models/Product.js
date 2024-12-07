@@ -1,29 +1,28 @@
-// models/Product.js
-import { Sequelize, DataTypes } from 'sequelize'; 
-import sequelize from '../db';  // Import Sequelize instance
+import { DataTypes } from 'sequelize';
+import sequelize from '../db.js';
 
-const Product = sequelize.define('Product', {
-    id: {
+const Product = sequelize.define('product', {
+    Product_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    name: {
+    Product_name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
     description: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT, // Use TEXT for longer descriptions
+        allowNull: true,
     },
     price: {
         type: DataTypes.FLOAT,
         allowNull: false,
     },
     image: {
-        type: DataTypes.STRING,  // Assuming the image field stores image URLs or paths
+        type: DataTypes.STRING, // Assuming the image field stores image URLs
         allowNull: false,
-    }
+    },
 });
 
-// Export the Product model using ES module export
 export default Product;
