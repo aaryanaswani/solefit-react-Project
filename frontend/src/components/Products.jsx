@@ -39,7 +39,7 @@ const ProductsSection = () => {
     };
 
     return (
-        <div className="products-section">
+        <div id="products" className="products-section">
             <h1>Products</h1>
             {error && <div className="error-message">{error}</div>}
             <div className="products-container">

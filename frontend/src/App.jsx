@@ -13,7 +13,7 @@ import AdminNavbar from './components/AdminNavbar';
 import ManageCustomers from './components/manage-customers';
 import ManageOrders from './components/manage-orders';
 import ManageProducts from './components/manage-products';
-
+import Register from './components/Register';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -27,6 +27,7 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login/:panel" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/admin" element={<AdminDashboard />} />
                 <Route path="/manage-customers" element={<ManageCustomers />} />
                 <Route path="/manage-orders" element={<ManageOrders />} />

@@ -29,6 +29,11 @@ const Login = () => {
         }
     };
 
+    const handleRegisterNavigate = () => {
+        // Navigate to the registration page
+        navigate('/register');
+    };
+
     return (
         <div className="login-container">
             <div className="login-card">
@@ -55,6 +60,12 @@ const Login = () => {
                     />
                     <button type="submit">Login</button>
                 </form>
+
+                {/* Register Now Button */}
+                <div className="register-now">
+                    <p>Don't have an account?</p>
+                    <button onClick={handleRegisterNavigate}>Register Now</button>
+                </div>
             </div>
         </div>
     );

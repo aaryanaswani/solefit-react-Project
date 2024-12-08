@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 
         res.json(orders);
     } catch (err) {
-        console.error('Error fetching orders:', err);
+        console.error('Error fetching orders:', err.message);
         res.status(500).json({ message: 'Failed to fetch orders.', error: err.message });
     }
 });
@@ -32,9 +32,15 @@ router.put('/:order_id/status', async (req, res) => {
     const { order_id } = req.params;
     const { status } = req.body;
 
+    if (!status) {
+        return res.status(400).json({ message: 'Status is required to update an order.' });
+    }
+
     try {
         await sequelize.query(`
-            UPDATE orders SET status = :status WHERE order_id = :order_id
+            UPDATE orders 
+            SET status = :status 
+            WHERE order_id = :order_id
         `, {
             replacements: { status, order_id },
             type: sequelize.QueryTypes.UPDATE,
@@ -42,7 +48,7 @@ router.put('/:order_id/status', async (req, res) => {
 
         res.json({ message: 'Order status updated successfully.' });
     } catch (err) {
-        console.error('Error updating order status:', err);
+        console.error('Error updating order status:', err.message);
         res.status(500).json({ message: 'Failed to update order status.', error: err.message });
     }
 });

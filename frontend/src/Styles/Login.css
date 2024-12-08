@@ -54,3 +54,27 @@
   text-decoration: underline;
   font-weight: bold;
 }
+
+.register-now {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.register-now p {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.register-now button {
+  background-color: #f4976c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-now button:hover {
+  background-color: #f5814c;
+}

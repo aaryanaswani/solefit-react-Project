@@ -1,24 +1,119 @@
 .manage-products {
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.manage-products h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.add-product-form {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.add-product-form h2 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.add-product-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-product-form button {
+    display: inline-block;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.add-product-form button:hover {
+    background-color: #218838;
 }
 
 .products-table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 .products-table th,
 .products-table td {
     border: 1px solid #ddd;
-    padding: 10px;
     text-align: left;
+    padding: 8px;
 }
 
 .products-table th {
     background-color: #f4f4f4;
+    color: #333;
+}
+
+.products-table td button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.products-table td button:hover {
+    opacity: 0.8;
+}
+
+.products-table td button:first-child {
+    background-color: #007bff;
+}
+
+.products-table td button:first-child:hover {
+    background-color: #0056b3;
+}
+
+.products-table td button:last-child {
+    background-color: #dc3545;
+}
+
+.products-table td button:last-child:hover {
+    background-color: #c82333;
 }
 
 .error-message {
     color: red;
-    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.edit-product-form {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+.edit-product-form input {
+    margin-bottom: 10px;
+    padding: 8px;
+    width: 100%;
+}
+.edit-product-form button {
+    margin-right: 10px;
+    padding: 8px 12px;
+    cursor: pointer;
 }

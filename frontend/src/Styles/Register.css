@@ -1,0 +1,84 @@
+/* General container styling */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Card styling for the form */
+.register-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+}
+
+/* Heading styling */
+.register-card h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form element styling */
+.register-card label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
+.register-card input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Button styling */
+.register-card button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f4976c;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-card button:hover {
+    background-color: #f88e5c;
+}
+
+/* Error and success messages */
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.success-message {
+    color: #5cb85c;
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Adjust the input focus effect */
+.register-card input:focus {
+    outline: none;
+    border-color: #f4976c;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
+}

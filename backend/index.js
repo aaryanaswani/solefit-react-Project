@@ -9,6 +9,7 @@ import orderRoutes from './routes/orders.js';
 import customersRoutes from './routes/customers.js'; // Import the route
 import MordersRoute from './routes/M_orders.js';
 import MproductsRoute from './routes/M_products.js';
+import registerRoutes from './routes/register.js';
 
 const app = express();
 
@@ -22,8 +23,9 @@ app.use('/products', productRoutes);
 app.use('/cart', cartRoutes);
 app.use('/orders', orderRoutes);
 app.use('/customers', customersRoutes);
-app.use('/orders', MordersRoute);
-app.use('products', MproductsRoute);
+app.use('/morders', MordersRoute);
+app.use('/mproducts', MproductsRoute);
+app.use('/api',registerRoutes); // Use the /register route
 
 // Start Server
 sequelize

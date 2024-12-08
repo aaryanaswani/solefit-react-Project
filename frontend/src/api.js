@@ -12,6 +12,28 @@ export const loginUser = async ({ username, password, panel }) => {
     return response.data;
 };
 
+// register user
+export const registerUser = async (userData) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(userData),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Failed to register user.');
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Error registering user:', error.message);
+        throw error;
+    }
+};
+
 // New fetchProducts function
 export const fetchProducts = async () => {
     try {
@@ -113,22 +135,53 @@ export const fetchCustomers = async () => {
     return response.data;
 };
 
-export const fetchorders = async () => {
-    try {
-        const response = await axios.get(`${API_BASE_URL}/orders`);
-        return response.data; // Return the fetched data
-    } catch (error) {
-        console.error('Error fetching orders:', error.message);
-        throw new Error('Failed to fetch orders.'); // Let the calling component handle the error
-    }
-};
-
 export const fetchProductDetails = async () => {
     try {
-        const response = await axios.get(`${API_BASE_URL}/products`);
+        const response = await axios.get(`${API_BASE_URL}/mproducts`);
         return response.data; // Return the product details
     } catch (error) {
         console.error('Error fetching product details:', error.message);
         throw new Error('Failed to fetch product details.');
+    }
+};
+
+// Add a new product
+export const addProduct = async (productData) => {
+    const response = await axios.post(`${API_BASE_URL}/mproducts/add`, productData);
+    return response.data;
+};
+
+// Update an existing product
+export const updateProduct = async (id, productData) => {
+    const response = await axios.put(`${API_BASE_URL}/mproducts/update/${id}`, productData);
+    return response.data;
+};
+
+// Delete a product
+export const deleteProduct = async (id) => {
+    const response = await axios.delete(`${API_BASE_URL}/mproducts/delete/${id}`);
+    return response.data;
+};
+
+
+// Fetch all orders
+export const fetchorders = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/morders`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching orders:', error.message);
+        throw new Error('Failed to fetch orders.');
+    }
+};
+
+// Update order status
+export const updateOrderStatus = async (orderId, data) => {
+    try {
+        const response = await axios.put(`${API_BASE_URL}/morders/${orderId}/status`, data);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating order status:', error.message);
+        throw new Error('Failed to update order status.');
     }
 };
