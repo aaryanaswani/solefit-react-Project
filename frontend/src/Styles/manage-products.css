@@ -1,0 +1,24 @@
+.manage-products {
+    padding: 20px;
+}
+
+.products-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.products-table th,
+.products-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.products-table th {
+    background-color: #f4f4f4;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+}

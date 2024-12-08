@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/authcontext'; // Import AuthContext
 import { loginUser } from '../api'; // Ensure this is implemented
 import '../Styles/Login.css';
 
 const Login = () => {
     const { panel } = useParams(); // Extract "admin" or "customer" from the URL
+    const { login } = useAuth(); // Access login function from AuthContext
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -17,13 +19,13 @@ const Login = () => {
         try {
             const response = await loginUser({ username, password, panel });
 
-            // Store user data in localStorage or sessionStorage
-            localStorage.setItem('user', JSON.stringify(response));
+            // Use AuthContext's login method
+            login(response);
 
             // Navigate based on the panel type
             navigate(panel === 'admin' ? '/admin' : '/home');
         } catch (err) {
-            setError(err); // Show error message
+            setError(err.response?.data?.message || 'Invalid credentials'); // Show error message
         }
     };
 
@@ -53,9 +55,6 @@ const Login = () => {
                     />
                     <button type="submit">Login</button>
                 </form>
-                <p>
-                    Don't have an account? <a href="/register">Register here</a>
-                </p>
             </div>
         </div>
     );
