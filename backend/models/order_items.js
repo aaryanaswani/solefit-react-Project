@@ -1,13 +1,13 @@
 import { DataTypes } from 'sequelize';
 import { define } from '../db.js';
 
-const Cart = define('Cart', {
-    cart_id: {
+const OrderItem = define('OrderItem', {
+    id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
     },
-    user_id: {
+    order_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
@@ -17,8 +17,8 @@ const Cart = define('Cart', {
     },
     quantity: {
         type: DataTypes.INTEGER,
-        defaultValue: 1,
+        allowNull: false,
     },
 });
 
-export default Cart;
+export default OrderItem;

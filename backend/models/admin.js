@@ -1,8 +1,8 @@
 import { DataTypes } from 'sequelize';
-import sequelize from '../db.js';
+import { define } from '../db.js';
 
-const Admin = sequelize.define('Admin', {
-    id: {
+const Admin = define('Admin', {
+    admin_id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -10,16 +10,18 @@ const Admin = sequelize.define('Admin', {
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
     },
     password: {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    role: {
-        type: DataTypes.ENUM('admin'),
+    email: {
+        type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'admin',
+    },
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
     },
 });
 

@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { define } from '../db';
+import { define } from '../db.js';
 
 const User = define('User', {
     user_id: {
@@ -16,11 +16,16 @@ const User = define('User', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    role: {
-        type: DataTypes.ENUM('customer'),
+    email: {
+        type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'customer',
+        unique: true,
+    },
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
     },
 });
 
 export default User;
+
