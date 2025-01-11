@@ -44,6 +44,17 @@ export const fetchProducts = async () => {
     }
 };
 
+// ContactRequests
+export const sendContactRequest = async (formData) => {
+    try {
+        const response = await axios.post('/api/contact', formData);
+        return response.data; // Return success message from the server
+    } catch (error) {
+        console.error('Error sending contact request:', error.response?.data || error.message);
+        throw new Error(error.response?.data?.message || 'Failed to send contact request');
+    }
+};
+
 // Add product to cart
 export const handleAddToCart = async (user_id, product_id, quantity) => {
     try {

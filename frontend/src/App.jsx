@@ -14,6 +14,7 @@ import ManageCustomers from './components/manage-customers';
 import ManageOrders from './components/manage-orders';
 import ManageProducts from './components/manage-products';
 import Register from './components/Register';
+import ContactSection from './components/Contact_Page';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -33,6 +34,8 @@ const AppRoutes = () => {
                 <Route path="/manage-orders" element={<ManageOrders />} />
                 <Route path="/manage-products" element={<ManageProducts />} />
                 <Route path="/home" element={<Home />} />
+                {/* <Route path="/about-us" element ={}></Route> */}
+                <Route path="/contact" element={<ContactSection />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/payment" element={<Payment />} />
