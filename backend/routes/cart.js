@@ -53,9 +53,9 @@ router.get('/:user_id', async (req, res) => {
 
     try {
         const cartItems = await sequelize.query(
-            `SELECT c.cart_id, p.Product_name AS productName, p.price, c.quantity, p.image
+            `SELECT c.Product_id, c.cart_id, p.Product_name AS productName, p.price, c.quantity, p.image
              FROM cart c
-             JOIN products p ON c.product_id = p.Product_id
+             JOIN products p ON c.Product_id = p.Product_id
              WHERE c.user_id = :user_id`,
             { replacements: { user_id }, type: sequelize.QueryTypes.SELECT }
         );
@@ -69,21 +69,23 @@ router.get('/:user_id', async (req, res) => {
     }
 });
 
-
-
-
 // Remove item from cart
 router.delete('/:user_id/:product_id', async (req, res) => {
     const { user_id, product_id } = req.params;
 
+    const transaction = await sequelize.transaction();
+
     try {
+        console.log('Received delete request for user_id:', user_id, 'product_id:', product_id);
+
         // Fetch the cart item to calculate stock rollback
         const [cartItem] = await sequelize.query(
             `SELECT quantity FROM cart WHERE user_id = :user_id AND product_id = :product_id`,
-            { replacements: { user_id, product_id }, type: sequelize.QueryTypes.SELECT }
+            { replacements: { user_id, product_id }, type: sequelize.QueryTypes.SELECT, transaction }
         );
 
         if (!cartItem) {
+            await transaction.rollback();
             return res.status(404).json({
                 code: 'CART_ITEM_NOT_FOUND',
                 message: 'Cart item not found. Cannot perform delete operation.',
@@ -95,22 +97,26 @@ router.delete('/:user_id/:product_id', async (req, res) => {
         // Delete the cart item
         await sequelize.query(
             `DELETE FROM cart WHERE user_id = :user_id AND product_id = :product_id`,
-            { replacements: { user_id, product_id } }
+            { replacements: { user_id, product_id }, transaction }
         );
 
         // Update product stock
         await sequelize.query(
             `UPDATE products SET Stock = Stock + :rollbackQuantity WHERE Product_id = :product_id`,
-            { replacements: { rollbackQuantity, product_id }, type: sequelize.QueryTypes.UPDATE }
+            { replacements: { rollbackQuantity, product_id }, type: sequelize.QueryTypes.UPDATE, transaction }
         );
+
+        await transaction.commit();
 
         res.json({
             message: 'Product removed from cart and stock updated successfully.',
         });
     } catch (err) {
+        await transaction.rollback();
         console.error('Error removing item from cart:', err);
         res.status(500).json({ code: 'SERVER_ERROR', message: 'Server error.', error: err.message });
     }
 });
+
 
 export default router;

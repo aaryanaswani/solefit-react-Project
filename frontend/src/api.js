@@ -4,12 +4,18 @@ const API_BASE_URL = 'http://localhost:5000';
 
 // Login user
 export const loginUser = async ({ username, password, panel }) => {
-    const response = await axios.post(`${API_BASE_URL}/auth/login`, {
-        username,
-        password,
-        panel,
-    });
-    return response.data;
+    try {
+        const response = await axios.post(`${API_BASE_URL}/auth/login`, {
+            username,
+            password,
+            panel,
+        });
+
+        return response.data; // Ensure the server sends the correct response structure
+    } catch (error) {
+        console.error('Login error:', error);
+        throw error; // Ensure the error is thrown so we can catch it in the component
+    }
 };
 
 // register user
@@ -30,7 +36,29 @@ export const registerUser = async (userData) => {
         return data;
     } catch (error) {
         console.error('Error registering user:', error.message);
-        throw error;
+        throw error; // Rethrow to handle it in the component
+    }
+};
+
+// registerAdmin
+export const registerAdmin = async (adminData) => {
+    try {
+        const response = await fetch(`${API_BASE_URL}/admin/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(adminData),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message || 'Failed to register admin.');
+        }
+
+        return data;
+    } catch (error) {
+        console.error('Error registering admin:', error.message);
+        throw error; // Rethrow to handle it in the component
     }
 };
 
@@ -47,11 +75,11 @@ export const fetchProducts = async () => {
 // ContactRequests
 export const sendContactRequest = async (formData) => {
     try {
-        const response = await axios.post('/api/contact', formData);
-        return response.data; // Return success message from the server
+        const response = await axios.post(`${API_BASE_URL}/contact`, formData);
+        return response.data;
     } catch (error) {
         console.error('Error sending contact request:', error.response?.data || error.message);
-        throw new Error(error.response?.data?.message || 'Failed to send contact request');
+        throw new Error('Failed to send contact request');
     }
 };
 
@@ -74,21 +102,6 @@ export const handleAddToCart = async (user_id, product_id, quantity) => {
         return await response.json();
     } catch (err) {
         console.error('Error in handleAddToCart:', err);
-        throw err;
-    }
-};
-
-
-export const addToCart = async (user_id, product_id, quantity) => {
-    try {
-        const response = await axios.post(`${API_BASE_URL}/cart/add`, {
-            user_id,
-            product_id,
-            quantity,
-        });
-        return response.data;
-    } catch (err) {
-        console.error('Add to Cart Error:', err.response?.data || err.message);
         throw err;
     }
 };

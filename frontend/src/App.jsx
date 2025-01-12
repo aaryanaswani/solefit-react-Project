@@ -15,6 +15,7 @@ import ManageOrders from './components/manage-orders';
 import ManageProducts from './components/manage-products';
 import Register from './components/Register';
 import ContactSection from './components/Contact_Page';
+import AdminRegister from './components/AdminRegister';
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -28,6 +29,7 @@ const AppRoutes = () => {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login/:panel" element={<Login />} />
+                <Route path="/adminregister" element={<AdminRegister />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/admin" element={<AdminDashboard />} />
                 <Route path="/manage-customers" element={<ManageCustomers />} />

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/ContactSection.css';
-import {sendContactRequest} from '../api';
+import { sendContactRequest } from '../api';
 
 const ContactSection = () => {
     const [formData, setFormData] = useState({
@@ -8,9 +8,20 @@ const ContactSection = () => {
         email: '',
         phone: '',
         message: '',
+        userId: ''
     });
     const [responseMessage, setResponseMessage] = useState('');
     const [error, setError] = useState('');
+
+    useEffect(() => {
+        // Retrieve the userId from localStorage (or from your global state/context)
+        const storedUserId = localStorage.getItem('userId');
+        if (storedUserId) {
+            setFormData(prevData => ({ ...prevData, userId: storedUserId }));
+        } else {
+            setError('User not logged in');
+        }
+    }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -21,7 +32,7 @@ const ContactSection = () => {
         try {
             const response = await sendContactRequest(formData);
             setResponseMessage(response.message);
-            setFormData({ name: '', email: '', phone: '', message: '' });
+            setFormData({ name: '', email: '', phone: '', message: '', userId: formData.userId });
             setError('');
         } catch (err) {
             setError(err.message);

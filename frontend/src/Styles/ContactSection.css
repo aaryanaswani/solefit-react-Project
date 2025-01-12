@@ -92,3 +92,13 @@
     color: #777;
     margin-top: 20px;
 }
+
+.success-message {
+    color: green;
+    font-size: 16px;
+}
+
+.error-message {
+    color: red;
+    font-size: 16px;
+}

@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-// Register a new user
+// Register a new admin
 router.post('/register', async (req, res) => {
     const { username, email, password } = req.body;
     if (!username || !email || !password) {
@@ -22,22 +22,22 @@ router.post('/register', async (req, res) => {
     }
 
     try {
-        // Check if email already exists
-        const [existingUser] = await sequelize.query(
-            'SELECT * FROM users WHERE email = :email',
+        // Check if admin with the provided email already exists
+        const [existingAdmin] = await sequelize.query(
+            'SELECT * FROM admins WHERE email = :email',
             { replacements: { email } }
         );
 
-        if (existingUser.length) {
-            return res.status(400).json({ message: 'Email is already registered.' });
+        if (existingAdmin.length) {
+            return res.status(400).json({ message: 'Admin with this email already exists.' });
         }
 
         // Hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        // Insert new user into the database
+        // Insert new admin into the database
         const [result] = await sequelize.query(
-            'INSERT INTO users (username, email, password) VALUES (:username, :email, :password)',
+            'INSERT INTO admins (username, email, password) VALUES (:username, :email, :password)',
             {
                 replacements: { username, email, password: hashedPassword },
             }
@@ -48,7 +48,7 @@ router.post('/register', async (req, res) => {
             from: process.env.EMAIL,
             to: email,
             subject: 'Welcome to Cartsy!',
-            text: `Hi ${username},\n\nThank you for registering on Cartsy! We're excited to have you on board.\n\nBest regards,\nThe Cartsy Team`,
+            text: `Hi ${username},\n\nThank you for registering as an Admin on Cartsy! We're excited to have you on board and help manage the platform.\n\nBest regards,\nThe Cartsy Team`,
         };
 
         transporter.sendMail(mailOptions, (err, info) => {
@@ -59,10 +59,10 @@ router.post('/register', async (req, res) => {
             console.log('Welcome email sent:', info.response);
         });
 
-        res.status(201).json({ message: 'User registered successfully.' });
+        res.status(201).json({ message: 'Admin registered successfully.' });
     } catch (error) {
-        console.error('Error registering user:', error.message);
-        res.status(500).json({ message: 'Failed to register user.', error: error.message });
+        console.error('Error registering admin:', error.message);
+        res.status(500).json({ message: 'Failed to register admin.', error: error.message });
     }
 });
 

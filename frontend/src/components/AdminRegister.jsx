@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { registerUser } from '../api'; // Ensure this is implemented
+import { registerAdmin } from '../api'; // Make sure this API function is implemented
 import '../Styles/Register.css';
 
-const Register = () => {
+const AdminRegister = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
@@ -19,20 +19,20 @@ const Register = () => {
         setSuccess('');
     
         try {
-            // Submit form data to backend API
-            const response = await registerUser(formData);
-            setSuccess(response.message || 'Registration successful!');
+            // Submit form data to the backend API for admin registration
+            const response = await registerAdmin(formData);
+            setSuccess(response.message || 'Admin registration successful!');
             setFormData({ username: '', email: '', password: '' }); // Clear form fields
-            setTimeout(() => navigate('/login/customer'), 3000); // Redirect to login after 3 seconds
+            setTimeout(() => navigate('/login/admin'), 3000); // Redirect to login after 3 seconds
         } catch (err) {
-            setError(err.response?.data?.message || 'Failed to register.');
+            setError(err.response?.data?.message || 'Failed to register admin.');
         }
     };
 
     return (
         <div className="register-container">
             <div className="register-card">
-                <h1>Customer Register</h1>
+                <h1>Admin Register</h1>
                 {error && <p className="error-message">{error}</p>}
                 {success && <p className="success-message">{success}</p>}
                 <form onSubmit={handleRegister}>
@@ -76,4 +76,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default AdminRegister;

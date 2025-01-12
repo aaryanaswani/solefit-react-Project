@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import sequelize from '../db.js'; // Replace with your Sequelize database connection file
+import sequelize from '../db.js';
 
 const router = Router();
 
 // POST route to handle contact form submission
 router.post('/', async (req, res) => {
-    const { name, email, phone, message } = req.body;
+    const { name, email, phone, message, userId } = req.body;
 
     console.log('Contact Form Submission:', req.body); // Debugging: Log incoming request
 
@@ -15,11 +15,11 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        // Insert the contact request into the "request" table
+        // Insert the contact request into the "requests" table
         await sequelize.query(
-            `INSERT INTO request (name, email, phone, message, created_at)
-             VALUES (:name, :email, :phone, :message, NOW())`,
-            { replacements: { name, email, phone, message }, type: sequelize.QueryTypes.INSERT }
+            `INSERT INTO requests (user_id, name, email, phone, message, created_at)
+             VALUES (:userId, :name, :email, :phone, :message, NOW())`,
+            { replacements: { userId, name, email, phone, message }, type: sequelize.QueryTypes.INSERT }
         );
 
         console.log('Contact request saved successfully:', { name, email, phone });

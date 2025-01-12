@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
-import { define } from '../db.js';
+import sequelize from '../db.js'; // Ensure you're importing the correct sequelize instance
 
-const User = define('User', {
+const User = sequelize.define('User', {
     user_id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -10,7 +10,7 @@ const User = define('User', {
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: true, // Ensure the username is unique
     },
     password: {
         type: DataTypes.STRING,
@@ -19,13 +19,20 @@ const User = define('User', {
     email: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
+        unique: true, // Ensure the email is unique
     },
     created_at: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
+        allowNull: false, // Make sure created_at is required
     },
+    updated_at: {
+        type: DataTypes.DATE,
+        allowNull: true, // Allow null until updated
+    },
+}, {
+    tableName: 'users', // Explicitly set the table name
+    timestamps: true, // Enable timestamps for createdAt and updatedAt
 });
 
 export default User;
-

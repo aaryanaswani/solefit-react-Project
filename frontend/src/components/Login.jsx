@@ -19,19 +19,27 @@ const Login = () => {
         try {
             const response = await loginUser({ username, password, panel });
 
-            // Use AuthContext's login method
-            login(response);
+            console.log(response); // Log the response to see the structure
+
+            // Save user data and token dynamically
+            localStorage.setItem('userId', response.user.user_id); // Store user ID in localStorage
+            localStorage.setItem('token', response.token); // Store token in localStorage
+            login(response); // Optionally, save user data in context
 
             // Navigate based on the panel type
             navigate(panel === 'admin' ? '/admin' : '/home');
         } catch (err) {
+            console.error('Login error:', err);
             setError(err.response?.data?.message || 'Invalid credentials'); // Show error message
         }
     };
-
     const handleRegisterNavigate = () => {
-        // Navigate to the registration page
-        navigate('/register');
+        // Navigate to the registration page based on panel type (admin or customer)
+        if (panel === 'admin') {
+            navigate('/adminregister'); // Redirect to admin registration page
+        } else {
+            navigate('/register'); // Redirect to customer registration page
+        }
     };
 
     return (

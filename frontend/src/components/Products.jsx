@@ -21,16 +21,19 @@ const ProductsSection = () => {
         getProducts();
     }, []);
 
-    const handleAddToCartClick = async (product_id,user_id) => {
-        if (!user) {
+    const handleAddToCartClick = async (product_id) => {
+        // Get user ID from localStorage
+        const userId = localStorage.getItem('userId');
+        
+        if (!userId) {
             alert('You need to log in to add items to the cart.');
             return;
         }
 
         try {
             const quantity = 1; // Default quantity to 1 for adding to cart
-            console.log('Adding to cart:', { user_id: user_id, product_id: product_id, quantity });
-            await handleAddToCart(user_id, product_id, quantity); // Pass correct parameters
+            console.log('Adding to cart:', { user_id: userId, product_id: product_id, quantity });
+            await handleAddToCart(userId, product_id, quantity); // Pass correct parameters
             alert('Product added to cart');
         } catch (err) {
             console.error('Failed to add product to cart:', err);
@@ -50,7 +53,7 @@ const ProductsSection = () => {
                             <h2>{product.Product_name}</h2>
                             <p>{product.description}</p>
                             <p>${product.price}</p>
-                            <button onClick={() => handleAddToCartClick(product.Product_id,1)}>Add to Cart</button>
+                            <button onClick={() => handleAddToCartClick(product.Product_id)}>Add to Cart</button>
                         </div>
                     ))
                 ) : (

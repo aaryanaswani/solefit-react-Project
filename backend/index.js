@@ -11,6 +11,7 @@ import MordersRoute from './routes/M_orders.js';
 import MproductsRoute from './routes/M_products.js';
 import registerRoutes from './routes/register.js';
 import contactRoutes from './routes/contact.js';
+import AdminRegister from './routes/adminregister.js';
 
 const app = express();
 
@@ -26,8 +27,9 @@ app.use('/orders', orderRoutes);
 app.use('/customers', customersRoutes);
 app.use('/morders', MordersRoute);
 app.use('/mproducts', MproductsRoute);
-app.use('/api',registerRoutes); // Use the /register route
-app.use('/contact',contactRoutes);
+app.use('/api', registerRoutes); // Use the /register route
+app.use('/contact', contactRoutes);
+app.use('/admin', AdminRegister)
 
 // Start Server
 sequelize
