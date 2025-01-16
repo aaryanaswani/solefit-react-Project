@@ -24,7 +24,7 @@ const Home = () => {
                 <div className="about-content">
                     <h2>Unleash your footwear passion</h2>
                     <p>
-                        At Cartsy, we craft shoes that blend comfort with cutting-edge style in Karachi, PK.
+                        At SoleFit, we craft shoes that blend comfort with cutting-edge style in Karachi, PK.
                         Our mission is to empower individuals to express themselves through footwear
                         that not only looks good but feels great.
                     </p>

@@ -1,65 +1,89 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Raleway:wght@100&display=swap');
+
 .navbar {
+  background-color:  #fdfcf4; /* White background */
+  padding: 1px 10px;
   display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: space-between; /* Space between logo and right-aligned items */
-  background-color: #fdfcf4; /* Creamy white background */
-  padding: 15px 50px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Lato', sans-serif;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds depth */
   position: sticky;
   top: 0;
-  z-index: 1000;
 }
 
-.navbar-logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #5a5a5a; /* Dark text */
+.navbar-logo .logo-link {
   text-decoration: none;
-}
-
-.navbar-right {
-  display: flex;
-  align-items: center; /* Align links and button vertically */
-  gap: 20px; /* Space between links and cart button */
+  font-size: 28px;
+  font-weight: bolder;
+  font-family: 'Raleway', sans-serif;
+  color:#c78550; /* Navy color */
+  letter-spacing: 1px;
 }
 
 .navbar-links {
   display: flex;
-  list-style: none;
-  gap: 25px; /* Space between navigation links */
-  margin: 0;
-  padding: 0;
+  gap: 40px;
 }
 
-.navbar-links li a {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #5a5a5a; /* Dark text */
+ul {
+  list-style-type: none; /* Removes the dot (bullet) */
+  padding: 0; /* Optional: removes default padding */
+}
+
+.nav-link {
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  color: #c78550; /* Navy color */
+  font-size: 14px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.5px;
+  position: relative; /* For the underline effect */
+  overflow: hidden; /* Ensures the underline does not go outside the link */
 }
 
+/* Add a transition for the underline to appear slowly */
+.nav-link::after {
+  content: ''; 
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
 
-
-.cart-button:hover{
-  color: #c78550; /* Light brown on hover */
+  background-color: #c78550; /* Navy color for the underline */
+  transition: width 0.3s ease; /* Duration and easing function for smooth effect */
 }
 
-.cart-button {
-  padding: 8px 20px;
-  font-size: 1rem;
-  color: #5a5a5a; /* Dark text for button */
-  background-color: transparent;
-  border: 2px solid #5a5a5a; /* Dark border */
-  border-radius: 5px;
-  text-transform: uppercase;
-  font-weight: bold;
+.nav-link:hover::after {
+  width: 100%; /* Underline expands to full width on hover */
+}
+
+.nav-link:hover {
+  color:  #c78550; /* Change color on hover */
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.logout-button, .login-button, .cart-button {
+  color:#c78550; /* Navy color for icons */
+  background: none;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  font-size: 20px;
 }
 
-.cart-button:hover {
-  background-color: #c78550; /* Light brown fill */
-  color: white; /* White text */
-  border-color: #c78550; /* Match border with fill */
+.logout-button:hover, .login-button:hover, .cart-button:hover {
+  color:#c78550;
+}
+
+.fas {
+  font-size: 20px;
 }

@@ -1,0 +1,150 @@
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .checkout-main {
+    display: flex;
+    width: 80%; /* Limit the container width to 80% */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for the box */
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .checkout-left {
+    width: 60%; /* Reduced width for the form */
+    padding: 20px;
+    background-color: #fff; /* White background for form */
+    color: black; /* Black text for form */
+  }
+  
+  .checkout-right {
+    width: 35%; /* Reduced width for the order summary */
+    padding: 20px;
+    position: sticky;
+    top: 20px; /* Stick the order summary at the top of the page */
+    align-self: flex-start;
+    background-color: #fff; /* White background for order summary */
+    color: black; /* Black text for order summary */
+  }
+  
+  .checkout-section {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: black; /* Ensure heading text is black */
+  }
+  
+  label {
+    font-weight: lighter;
+    color: black; /* Black text for labels */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .pay-now-btn {
+    padding: 15px 30px;
+    background-color: rgb(38, 38, 38);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+  }
+  
+  .pay-now-btn:hover {
+    background-color: black;
+  }
+  
+  .order-summary {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff; /* White background for order summary */
+    color: black; /* Black text for order summary */
+  }
+  
+  .order-item {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .order-item-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .product-image {
+    width: 70px;  /* Adjust image size */
+    height: 70px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .product-name {
+    font-weight: bold;
+    color: black; /* Black text for product name */
+  }
+  
+  .product-variant {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .product-price {
+    font-size: 14px;
+    color: black; /* Black text for product price */
+  }
+  
+  .cost-summary {
+    margin-top: 20px;
+  }
+  
+  .cost-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  
+  .total-cost {
+    font-weight: bold;
+    font-size: 18px;
+    color: black; /* Black text for total cost */
+  }
+  
+  .checkbox-section {
+    margin-top: 10px;
+  }
+  
+  .checkbox-section label {
+    font-size: 14px;
+    color: black; /* Black text for checkbox label */
+  }
+  

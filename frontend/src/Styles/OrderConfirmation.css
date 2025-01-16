@@ -1,0 +1,123 @@
+/* General Reset */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.order-page {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+
+.order-main {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 65%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.order-info .order-id {
+    font-size: 16px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.order-info h2 {
+    font-size: 28px;
+    color: #333;
+    margin: 0;
+}
+
+.order-updates h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.order-details h4 {
+    margin: 10px 0 5px;
+}
+
+.continue-shopping {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.continue-shopping:hover {
+    background-color: black;
+}
+
+.order-sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-sidebar h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.order-item {
+    display: grid;
+    grid-template-columns: 60px 1fr 100px 100px; /* Image, Name, Quantity, Price */
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eaeaea; /* Separator between products */
+}
+
+.order-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+}
+
+.order-item .name {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.order-item .quantity {
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+}
+
+.order-item .price {
+    text-align: right;
+    font-weight: bold;
+    color: #333;
+}
+
+.order-summary p, .order-summary h4 {
+    text-align: right;
+    margin: 5px 0;
+}
+
+.order-summary h4 {
+    font-size: 18px;
+    color: #000;
+}

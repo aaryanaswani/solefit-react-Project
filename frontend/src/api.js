@@ -128,12 +128,10 @@ export const removeCartItem = async (user_id, product_id) => {
 };
 
 // Place an order
-export const placeOrder = async (user_id, address) => {
+export const ordernow = async (orderPayload) => {
     try {
-        const response = await axios.post(`${API_BASE_URL}/orders/place`, {
-            user_id,
-            address,
-        });
+        const response = await axios.post(`${API_BASE_URL}/orders/place`, orderPayload);
+        localStorage.setItem('order_id', response.data.order_id);
         return response.data;
     } catch (error) {
         console.error('Error placing order:', error.response?.data || error.message);
@@ -141,17 +139,17 @@ export const placeOrder = async (user_id, address) => {
     }
 };
 
-// Fetch user orders
-export const fetchOrders = async (user_id) => {
+export const getOrderDetails = async () => {
+    const order_id = localStorage.getItem('order_id'); // Retrieve order_id from localStorage
+    
     try {
-        const response = await axios.get(`${API_BASE_URL}/orders/${user_id}`);
-        return response.data;
+      const response = await axios.get(`${API_BASE_URL}/orders/${order_id}`); // Call the API to get order details
+      return response.data; // Return order details
     } catch (error) {
-        console.error('Error fetching orders:', error.response?.data || error.message);
-        throw new Error(error.response?.data?.message || 'Failed to fetch orders.');
+      console.error("Error fetching order details:", error);
+      throw error; // Throw error if API call fails
     }
-};
-
+  };
 
 //admin routes
 export const fetchCustomers = async () => {

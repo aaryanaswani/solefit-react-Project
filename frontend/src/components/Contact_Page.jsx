@@ -67,14 +67,16 @@ const ContactSection = () => {
 
                 <div className="contact-info">
                     <h2>Contact Information</h2>
-                    <p><strong>Email:</strong> services.cartsy@gmail.com</p>
+                    <p><strong>Email:</strong> services.solefit@gmail.com</p>
                     <p><strong>Phone:</strong> +1-234-567-890</p>
                     <p><strong>Location:</strong> Karachi, SD, PK</p>
                     <div className="map-placeholder">
-                        <p>Map will appear here or replace with Google Maps iframe.</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d418711.6350408486!2d66.99373510156378!3d24.86073537966561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f810b65e2b5%3A0x2a0b44b4a314f5f7!2sKarachi%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2sus!4v1673641962141!5m2!1sen!2sus"></iframe>
+
                     </div>
                 </div>
             </div>
+            
         </div>
     );
 };

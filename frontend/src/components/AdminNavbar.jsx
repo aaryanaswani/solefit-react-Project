@@ -7,7 +7,7 @@ const AdminNavbar = () => {
         <nav className="admin-navbar">
             {/* Left-aligned logo */}
             <div className="admin-logo">
-                <Link to="/admin">CARTSY</Link>
+                <Link to="/admin">SoleFit</Link>
             </div>
 
             {/* Right-aligned login link */}

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { fetchCartItems, removeCartItem } from '../api'; // API functions
+import { fetchCartItems, removeCartItem } from '../api';
 import '../Styles/cart.css';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const [cartItems, setCartItems] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [removingItemId, setRemovingItemId] = useState(null); // Track which item is being removed
+    const [removingItemId, setRemovingItemId] = useState(null);
 
-    // Retrieve user ID from localStorage
-    const userId = localStorage.getItem('userId'); // Assuming user ID is stored as 'userId' in localStorage
+    const userId = localStorage.getItem('userId');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const loadCartItems = async () => {
@@ -20,10 +21,9 @@ const Cart = () => {
             }
 
             try {
-                const items = await fetchCartItems(userId); // Use userId
+                const items = await fetchCartItems(userId);
                 setCartItems(items);
             } catch (err) {
-                console.error('Error fetching cart items:', err);
                 setError('Failed to load cart items. Please try again later.');
             } finally {
                 setLoading(false);
@@ -34,31 +34,19 @@ const Cart = () => {
     }, [userId]);
 
     const handleRemove = async (productId) => {
-        // Check if productId is valid
-        if (!productId) {
-            console.error('Invalid product ID:', productId);
-            setError('Product ID is invalid.');
-            return;
-        }
-
-        // Disable the remove button for the specific item being processed
         setRemovingItemId(productId);
-        console.log('Removing product:', productId, 'for user:', userId);
-        
         try {
-            // Call removeCartItem API
             await removeCartItem(userId, productId);
-            
-            // After successful removal, update the cart by filtering out the removed item
             setCartItems(cartItems.filter((item) => item.product_id !== productId));
-            alert('Item removed from cart.');
         } catch (err) {
-            console.error('Error in frontend handleRemove:', err);
             setError('Failed to remove item. Please try again.');
         } finally {
-            // Reset the removing item ID after the operation
             setRemovingItemId(null);
         }
+    };
+
+    const handleCheckout = () => {
+        navigate('/checkout');
     };
 
     if (loading) {
@@ -71,25 +59,30 @@ const Cart = () => {
 
     return (
         <div className="cart-container">
-            <h1>Your Cart</h1>
+            <h1>Your Shopping Cart</h1>
             {cartItems.length > 0 ? (
-                cartItems.map((item) => {
-                    console.log('Cart Item:', item); // Log the item to check for product_id
-                    return (
-                        <div key={item.cart_id} className="cart-item">
-                            <img src={item.image} alt={item.productName} className="cart-item-image" />
-                            <h2>{item.productName}</h2>
-                            <p>Price: ${item.price}</p>
-                            <p>Quantity: {item.quantity}</p>
-                            <button
-                                onClick={() => handleRemove(item.Product_id)}
-                                disabled={removingItemId === item.Product_id} // Disable only the button being processed
-                            >
-                                {removingItemId === item.Product_id ? 'Removing...' : 'Remove'}
-                            </button>
-                        </div>
-                    );
-                })
+                <>
+                    <div className="cart-items">
+                        {cartItems.map((item) => (
+                            <div key={item.cart_id} className="cart-item">
+                                <img src={item.image} alt={item.productName} className="cart-item-image" />
+                                <div className="cart-item-info">
+                                    <h2>{item.productName}</h2>
+                                    <p>Price: ${item.price}</p>
+                                    <p>Quantity: {item.quantity}</p>
+                                </div>
+                                <button
+                                    className="remove-button"
+                                    onClick={() => handleRemove(item.Product_id)}
+                                    disabled={removingItemId === item.Product_id}
+                                >
+                                    {removingItemId === item.Product_id ? 'Removing...' : 'Remove'}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                    <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
+                </>
             ) : (
                 <p>Your cart is empty.</p>
             )}

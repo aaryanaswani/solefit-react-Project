@@ -16,16 +16,25 @@ import ManageProducts from './components/manage-products';
 import Register from './components/Register';
 import ContactSection from './components/Contact_Page';
 import AdminRegister from './components/AdminRegister';
+import Checkout from './components/Checkout';
+import OrderConfirmation from './components/OrderConfirmation';
+import AboutUs from './components/AboutUs';
+import PrivacyPolicy from './components/PrivacyPolicy';
+
+
+const ADMIN_ROUTES = ['/admin', '/manage-customers', '/manage-orders', '/manage-products'];
 
 const AppRoutes = () => {
     const location = useLocation();
-    const adminRoutes = ['/admin', '/manage-customers', '/manage-orders', '/manage-products'];
-    const isAdminRoute = adminRoutes.some((route) => location.pathname.startsWith(route));
+    const isAdminRoute = ADMIN_ROUTES.some((route) => location.pathname.startsWith(route));
     const isLoginPage = location.pathname.includes('/login');
+    const isLandingPage = location.pathname === '/';
 
     return (
         <div>
-            {!isLoginPage && (isAdminRoute ? <AdminNavbar /> : <Navbar />)}
+            {/* Render Navbar conditionally */}
+            {!isLoginPage && !isLandingPage && (isAdminRoute ? <AdminNavbar /> : <Navbar />)}
+
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login/:panel" element={<Login />} />
@@ -36,11 +45,16 @@ const AppRoutes = () => {
                 <Route path="/manage-orders" element={<ManageOrders />} />
                 <Route path="/manage-products" element={<ManageProducts />} />
                 <Route path="/home" element={<Home />} />
-                {/* <Route path="/about-us" element ={}></Route> */}
+                <Route path="/AboutUs" element={<AboutUs/>}/>
                 <Route path="/contact" element={<ContactSection />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/OrderConfirmation" element={<OrderConfirmation />} />
+                <Route path="/PrivacyPolicy" element={<PrivacyPolicy />}/>
                 <Route path="/payment" element={<Payment />} />
+                {/* 404 Route */}
+                <Route path="*" element={<h1>404 - Page Not Found</h1>} />
             </Routes>
         </div>
     );

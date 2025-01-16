@@ -82,16 +82,23 @@
 }
 
 .map-placeholder {
-    height: 200px;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Aspect ratio for 16:9 */
     background-color: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
     border-radius: 5px;
-    font-size: 0.9rem;
-    color: #777;
-    margin-top: 20px;
 }
+
+.map-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 
 .success-message {
     color: green;

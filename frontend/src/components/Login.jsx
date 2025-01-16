@@ -71,8 +71,8 @@ const Login = () => {
 
                 {/* Register Now Button */}
                 <div className="register-now">
-                    <p>Don't have an account?</p>
-                    <button onClick={handleRegisterNavigate}>Register Now</button>
+                    <p>Don't have an account? <button onClick={handleRegisterNavigate}>Register Now</button></p>
+                    
                 </div>
             </div>
         </div>

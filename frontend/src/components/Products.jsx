@@ -52,7 +52,7 @@ const ProductsSection = () => {
                             <img src={product.image} alt={product.Product_name} className="product-image" />
                             <h2>{product.Product_name}</h2>
                             <p>{product.description}</p>
-                            <p>${product.price}</p>
+                            <p>Rs.{product.price}</p>
                             <button onClick={() => handleAddToCartClick(product.Product_id)}>Add to Cart</button>
                         </div>
                     ))
