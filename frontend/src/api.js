@@ -207,3 +207,26 @@ export const updateOrderStatus = async (orderId, data) => {
         throw new Error('Failed to update order status.');
     }
 };
+
+export const fetchRequests = async () => {
+    try {
+        const response = await axios.get(`${API_BASE_URL}/mrequests`);
+        return response.data; // Return the product details
+    } catch (error) {
+        console.error('Error fetching product details:', error.message);
+        throw new Error('Failed to fetch product details.');
+    }
+};
+
+export const updateRequestStatus = async (requestId, responseMessage) => {
+    try {
+
+        const res = await axios.put(`${API_BASE_URL}/mrequests/${requestId}`, {
+            response: responseMessage,
+        });
+        return res.data; // Renaming 'response' to 'res' here to avoid the conflict
+    } catch (error) {
+        console.error('Error updating request:', error.message);
+        throw new Error('Failed to update request.');
+    }
+};

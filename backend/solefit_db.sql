@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS cartsy_db;
+CREATE DATABASE IF NOT EXISTS solefit_db;
 
-USE cartsy_db;
+USE solefit_db;
 
 CREATE TABLE IF NOT EXISTS products (
     Product_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS orders (
     status ENUM('Pending', 'Paid', 'Delivered') DEFAULT 'Pending',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     address VARCHAR(255) NOT NULL,
+    payment_method VARCHAR(50) DEFAULT 'Credit Card',
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
@@ -53,6 +54,18 @@ CREATE TABLE IF NOT EXISTS order_items (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
+    price FLOAT NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (product_id) REFERENCES products(Product_id)
+);
+
+CREATE TABLE IF NOT EXISTS requests (
+    request_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

@@ -20,9 +20,10 @@ import Checkout from './components/Checkout';
 import OrderConfirmation from './components/OrderConfirmation';
 import AboutUs from './components/AboutUs';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import ManageRequests from './components/manage-requests';
 
 
-const ADMIN_ROUTES = ['/admin', '/manage-customers', '/manage-orders', '/manage-products'];
+const ADMIN_ROUTES = ['/admin', '/manage-customers', '/manage-orders', '/manage-products', '/manage-requests'];
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -44,9 +45,10 @@ const AppRoutes = () => {
                 <Route path="/manage-customers" element={<ManageCustomers />} />
                 <Route path="/manage-orders" element={<ManageOrders />} />
                 <Route path="/manage-products" element={<ManageProducts />} />
+                <Route path="/manage-requests" element ={<ManageRequests />}/>
                 <Route path="/home" element={<Home />} />
-                <Route path="/AboutUs" element={<AboutUs/>}/>
-                <Route path="/contact" element={<ContactSection />} />
+                <Route path="/About-Us" element={<AboutUs/>}/>
+                <Route path="/contact-us" element={<ContactSection />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />

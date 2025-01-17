@@ -47,8 +47,8 @@ router.post('/register', async (req, res) => {
         const mailOptions = {
             from: process.env.EMAIL,
             to: email,
-            subject: 'Welcome to Cartsy!',
-            text: `Hi ${username},\n\nThank you for registering as an Admin on Cartsy! We're excited to have you on board and help manage the platform.\n\nBest regards,\nThe Cartsy Team`,
+            subject: 'Welcome to SoleFit!',
+            text: `Hi ${username},\n\nThank you for registering as an Admin on SoleFit! We're excited to have you on board and help manage the platform.\n\nBest regards,\nThe Solefit Team`,
         };
 
         transporter.sendMail(mailOptions, (err, info) => {

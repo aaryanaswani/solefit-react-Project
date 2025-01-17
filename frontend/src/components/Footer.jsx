@@ -16,16 +16,16 @@ const Footer = () => {
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                         <i className="fab fa-twitter"></i>
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://instagram.com" target="/nike/#" rel="noopener noreferrer">
                         <i className="fab fa-instagram"></i>
                     </a>
                 </div>
 
                 {/* Footer Navigation Links */}
                 <ul className="footer-links">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/About-Us">About Us</a></li>
+                    <li><a href="/contact-us">Contact Us</a></li>
+                    <li><a href="/PrivacyPolicy">Privacy Policy</a></li>
                 </ul>
             </div>
         </footer>

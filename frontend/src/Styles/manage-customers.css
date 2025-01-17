@@ -1,19 +1,76 @@
+/* General Styling for Manage Customers */
 .manage-customers {
     padding: 20px;
     max-width: 800px;
     margin: auto;
+    position: relative; /* Added for positioning the inbox */
 }
 
+/* Inbox Button Styles */
+.inbox-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.inbox-button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.inbox-button:hover {
+    background-color: #003e80;
+}
+
+.show-password-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+.show-password-button:hover {
+    background-color: #e0e0e0;
+}
+
+
+.inbox-icon {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.inbox-text {
+    font-weight: bold;
+}
+
+/* Table Styling */
 .customers-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .customers-table th, .customers-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
+    font-size: 14px;
 }
 
 .customers-table th {
@@ -27,9 +84,35 @@
 
 .customers-table tr:hover {
     background-color: #f1f1f1;
+    cursor: pointer;
 }
 
+/* Error Message Styling */
 .error-message {
-    color: red;
+    color: #d9534f;
     font-weight: bold;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .manage-customers {
+        padding: 10px;
+    }
+
+    .inbox-button {
+        padding: 8px 10px;
+        font-size: 10px;
+    }
+
+    .inbox-icon {
+        font-size: 16px;
+    }
+
+    .customers-table th, .customers-table td {
+        font-size: 12px;
+        padding: 6px;
+    }
 }

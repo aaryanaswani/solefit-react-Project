@@ -6,7 +6,7 @@ const router = Router();
 // Get all customers
 router.get('/', async (req, res) => {
     try {
-        const [customers] = await sequelize.query('SELECT user_id, username, email, created_at FROM users');
+        const [customers] = await sequelize.query('SELECT user_id, username, email,password, created_at FROM users');
         res.json(customers);
     } catch (err) {
         console.error(err);

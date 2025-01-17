@@ -1,46 +1,78 @@
+/* General layout for the Privacy Policy page */
 .privacy-policy-page {
-    background-color: #f9f9f9;
-    color: #333;
-    font-family: 'Arial', sans-serif;
-    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures full height for the page */
+    background-color: #f9f9f9; /* Light background for better readability */
 }
 
+/* Header section styling */
 .policy-header {
     text-align: center;
-    background-color: #c78550;
+    background-color: #c78550; /* Warm color matching the site's theme */
     color: white;
-    padding: 50px 20px;
+    padding: 40px 20px; /* Adds spacing inside the header */
+    font-family: 'Lato', sans-serif; /* Clean and modern font */
 }
 
 .policy-header h1 {
-    font-size: 3rem;
+    font-size: 2.5rem; /* Large and readable title */
     margin-bottom: 10px;
-    font-weight: bold;
 }
 
 .policy-header p {
-    font-size: 1.5rem;
-    margin: 0 auto;
-    max-width: 800px;
-    line-height: 1.6;
+    font-size: 1.2rem; /* Smaller description below the header */
+    margin: 0;
 }
 
+/* Content section styling */
 .policy-content {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 0 20px;
+    flex: 1; /* Fills the remaining vertical space */
+    max-width: 800px; /* Limits the width for better readability */
+    margin: 30px auto; /* Centers the content */
+    padding: 0 20px; /* Adds horizontal padding for smaller screens */
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    color: #333; /* Neutral dark color for text */
+    line-height: 1.8; /* Increases readability with spacing between lines */
 }
 
 .policy-content h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    font-weight: bold;
-    color: #333;
+    font-size: 1.8rem;
+    margin-top: 20px;
+    color: #c78550; /* Matches the theme color */
 }
 
 .policy-content p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 20px;
-    line-height: 1.6;
+    margin: 10px 0;
+}
+
+/* Footer section styling */
+.policy-footer {
+    background-color: #c78550; /* Footer color matching header */
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Adds vertical padding */
+    margin-top: auto; /* Pushes footer to the bottom */
+    font-family: 'Raleway', sans-serif;
+}
+
+.policy-footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Additional styles for mobile responsiveness */
+@media (max-width: 768px) {
+    .policy-header h1 {
+        font-size: 2rem;
+    }
+
+    .policy-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .policy-footer p {
+        font-size: 0.9rem;
+    }
 }
