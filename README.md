@@ -179,3 +179,6 @@ The application will be available at the following URLs:
 ---
 
 Enjoy building and customizing your E-commerce application!
+
+![Screenshot](C:\Users\aarya\Desktop\images\Home.png)
+
