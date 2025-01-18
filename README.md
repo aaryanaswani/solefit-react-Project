@@ -179,3 +179,25 @@ The application will be available at the following URLs:
 ---
 
 Enjoy building and customizing your E-commerce application!
+
+
+## **Screenshots**
+
+**Customer Panel**
+
+<img width="365" alt="Customer-Register" src="https://github.com/user-attachments/assets/f4afd4e2-5b0c-48f5-bd6a-742f07453e1d" />
+<img width="960" alt="Customer-Login" src="https://github.com/user-attachments/assets/ea9b8b33-a901-485d-81cf-88ae9b45bc68" />
+<img width="949" alt="Home" src="https://github.com/user-attachments/assets/a192a94e-6663-4c2a-9b41-d1cc501d431d" />
+<img width="949" alt="Products-Page" src="https://github.com/user-attachments/assets/29efeceb-d60d-4a57-9591-1c2cfc312d5b" />
+<img width="960" alt="About-Us" src="https://github.com/user-attachments/assets/b394b3db-a79a-4d9f-bcde-0d5ceca27428" />
+<img width="947" alt="Contact-Us " src="https://github.com/user-attachments/assets/4bfd6aa7-d00e-4bc0-b36d-2d542b4e0692" />
+
+**Admin Panel**
+
+<img width="949" alt="Admin-Register" src="https://github.com/user-attachments/assets/08720220-d436-48c2-8734-2f5b644a956b" />
+<img width="960" alt="Admin-Login" src="https://github.com/user-attachments/assets/31c89466-c56a-4215-8c29-20cb7ef17a6c" />
+<img width="960" alt="Admin-Dashboard" src="https://github.com/user-attachments/assets/d14d4552-a9ce-4c8b-af9b-c8a346315cac" />
+<img width="947" alt="Manage-Products" src="https://github.com/user-attachments/assets/f9249870-2141-4659-afbd-0686c6ea4081" />
+<img width="948" alt="Manage-Orders" src="https://github.com/user-attachments/assets/c3c66c3c-99fb-437d-ac9e-c35de76230fa" />
+<img width="960" alt="mange-customers" src="https://github.com/user-attachments/assets/8eca9bc5-63de-4bf2-ad0e-79caf1de8742" />
+<img width="960" alt="Manage-Requests" src="https://github.com/user-attachments/assets/7ec359cd-4d4a-4c79-a738-fec93824b13b" />
