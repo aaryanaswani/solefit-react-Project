@@ -141,15 +141,15 @@ export const ordernow = async (orderPayload) => {
 
 export const getOrderDetails = async () => {
     const order_id = localStorage.getItem('order_id'); // Retrieve order_id from localStorage
-    
+
     try {
-      const response = await axios.get(`${API_BASE_URL}/orders/${order_id}`); // Call the API to get order details
-      return response.data; // Return order details
+        const response = await axios.get(`${API_BASE_URL}/orders/${order_id}`); // Call the API to get order details
+        return response.data; // Return order details
     } catch (error) {
-      console.error("Error fetching order details:", error);
-      throw error; // Throw error if API call fails
+        console.error("Error fetching order details:", error);
+        throw error; // Throw error if API call fails
     }
-  };
+};
 
 //admin routes
 export const fetchCustomers = async () => {

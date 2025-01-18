@@ -1,4 +1,3 @@
-
 const Request = sequelize.define('Request', {
     request_id: {
         type: DataTypes.INTEGER,
